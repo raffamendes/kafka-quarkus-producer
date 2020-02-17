@@ -31,9 +31,9 @@ public class Producer {
 	private AccountEvent generateRandonAccountEvent(){
 		AccountEvent a = new AccountEvent();
 		Random r = new Random();
-		a.setType((r.nextInt() > 0 ? "C":"D"));
+		a.setType((r.nextInt()%2 == 0 ? "C":"D"));
 		a.setValue(new BigDecimal(r.nextDouble()));		
-		a.setAccountNumber(r.nextLong());
+		a.setAccountNumber(r.nextInt()%2 == 0 ? 1l : 2l);
 		return a;
 	}
 }
